@@ -7,6 +7,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./receta.component.css']
 })
 export class RecetaComponent implements OnInit{
+
   constructor(public route:ActivatedRoute){
   }
   ngOnInit(): void {
