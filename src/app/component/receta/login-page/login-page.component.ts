@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { RecetaService } from 'src/app/service/receta.service';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 
 
 @Component({

@@ -9,6 +9,27 @@ import { CreateEditComponent } from './component/receta/create-edit/create-edit.
 import { MainPageComponent } from './component/receta/main-page/main-page.component';
 import { LoginPageComponent } from './component/receta/login-page/login-page.component';
 
+
+
+
+import { HttpClientModule} from '@angular/common/http';//add mano
+
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatTableModule } from '@angular/material/table';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSortModule } from '@angular/material/sort';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { FormsModule } from '@angular/forms';
+
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+//import { HeaderComponent } from './component/header/header.component';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatGridListModule } from '@angular/material/grid-list';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,8 +43,19 @@ import { LoginPageComponent } from './component/receta/login-page/login-page.com
   imports: [
     BrowserModule,
     AppRoutingModule,
-
-
+    HttpClientModule,//add mano
+    MatTableModule,
+    MatButtonModule,
+    MatSortModule,
+    MatPaginatorModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatMenuModule,
+    MatGridListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
