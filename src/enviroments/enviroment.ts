@@ -1,4 +1,4 @@
 export const environment={
   production:false,
-  base:"https://comebientp.netlify.app/"
+  base:"http://localhost:5000"
 }
