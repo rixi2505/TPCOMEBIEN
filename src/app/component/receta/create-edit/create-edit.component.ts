@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Receta } from 'src/app/model/recetas';
-import * as moment from 'moment'; // add a mano
+//import * as moment from 'moment'; // add a mano
 import { RecetaService } from 'src/app/service/receta.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 
@@ -14,7 +14,7 @@ export class CreateEditComponent implements OnInit {
   form: FormGroup = new FormGroup({});
   receta: Receta = new Receta();
   mensaje: string = '';
-  maxFecha: Date = moment().add(1, 'days').toDate();
+
   id: number = 0;
   edicion: boolean = false; //no es edicion
 
@@ -35,9 +35,9 @@ export class CreateEditComponent implements OnInit {
 
     this.form = new FormGroup({
       id: new FormControl(),
-      nameReceta: new FormControl('', [Validators.required]),
-      emailReceta: new FormControl('', [Validators.required, Validators.email]),
-      birthDateReceta: new FormControl(),
+      nombre: new FormControl('', [Validators.required]),
+      ingredientes: new FormControl('', [Validators.required, Validators.email]),
+      preparacion: new FormControl('', [Validators.required]),
     });
   }
   init() {
@@ -45,9 +45,9 @@ export class CreateEditComponent implements OnInit {
       this.recetaService.listId(this.id).subscribe((data) => {
         this.form = new FormGroup({
           id: new FormControl(data.id),
-          nameReceta: new FormControl(data.nameReceta),
-          emailReceta: new FormControl(data.emailReceta),
-          birthDateReceta: new FormControl(data.birthDateReceta),
+          nameReceta: new FormControl(data.nombre),
+          ingredientesReceta: new FormControl(data.ingredientes),
+          preparacionReceta: new FormControl(data.preparacion),
         });
       });
     }
@@ -55,9 +55,9 @@ export class CreateEditComponent implements OnInit {
 
   aceptar(): void {
     this.receta.id = this.form.value['id'];
-    this.receta.nameReceta = this.form.value['nameReceta'];
-    this.receta.emailReceta = this.form.value['emailReceta'];
-    this.receta.birthDateReceta = this.form.value['birthDateReceta'];
+    this.receta.nombre = this.form.value['nombreReceta'];
+    this.receta.ingredientes = this.form.value['ingredientesReceta'];
+    this.receta.preparacion = this.form.value['preparacionReceta'];
     if (this.form.valid) {
         if (this.edicion) {
           //registrarlo en la base de  datos

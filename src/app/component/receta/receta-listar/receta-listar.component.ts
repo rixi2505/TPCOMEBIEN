@@ -41,7 +41,7 @@ export class RecetaListarComponent implements OnInit{
 
   delete(id:string){
     this.recetaService.delete(id).subscribe(() =>
-        this.router.navigate(['recetas']).then(() => {
+        this.router.navigate(['receta']).then(() => {
           window.location.reload();
         }))
   }
