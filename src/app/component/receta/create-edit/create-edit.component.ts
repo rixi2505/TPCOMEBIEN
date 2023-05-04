@@ -36,7 +36,7 @@ export class CreateEditComponent implements OnInit {
     this.form = new FormGroup({
       id: new FormControl(),
       nombre: new FormControl('', [Validators.required]),
-      ingredientes: new FormControl('', [Validators.required, Validators.email]),
+      ingredientes: new FormControl('', [Validators.required]),
       preparacion: new FormControl('', [Validators.required]),
     });
   }
@@ -55,21 +55,21 @@ export class CreateEditComponent implements OnInit {
 
   aceptar(): void {
     this.receta.id = this.form.value['id'];
-    this.receta.nombre = this.form.value['nombreReceta'];
-    this.receta.ingredientes = this.form.value['ingredientesReceta'];
-    this.receta.preparacion = this.form.value['preparacionReceta'];
+    this.receta.nombre = this.form.value['nombre'];
+    this.receta.ingredientes = this.form.value['ingredientes'];
+    this.receta.preparacion = this.form.value['preparacion'];
     if (this.form.valid) {
         if (this.edicion) {
           //registrarlo en la base de  datos
           this.recetaService.update(this.receta).subscribe((data) =>
-            this.router.navigate(['recetas']).then(() => {
+            this.router.navigate(['receta']).then(() => {
               window.location.reload();
             })
           );
         } else {
           //registrarlo en la base de  datos
           this.recetaService.insert(this.receta).subscribe((data) =>
-            this.router.navigate(['recetas']).then(() => {
+            this.router.navigate(['receta']).then(() => {
               window.location.reload();
             })
           );
