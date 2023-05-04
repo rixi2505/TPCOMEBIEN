@@ -1,4 +1,4 @@
 export const environment={
   production:false,
-  base:"http://localhost:5000"
+  base:"https://strong-semifreddo-9f57db.netlify.app"
 }
