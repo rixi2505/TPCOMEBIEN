@@ -8,6 +8,10 @@ body {
   margin: auto;
 }
 
+img {
+  max-width: 40%;
+  height: auto;
+}
 .form {
   position: relative;
   z-index: 1;
@@ -104,3 +108,7 @@ body {
 .container .info span .fa {
   color: #EF3B3A;
 }
+
+
+
+

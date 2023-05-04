@@ -21,6 +21,11 @@ import { MatNativeDateModule } from '@angular/material/core';
 //import { HeaderComponent } from './component/header/header.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatGridListModule } from '@angular/material/grid-list';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+
+
+
 
 @NgModule({
   declarations: [
@@ -47,7 +52,10 @@ import { MatGridListModule } from '@angular/material/grid-list';
     MatDatepickerModule,
     MatNativeDateModule,
     MatMenuModule,
-    MatGridListModule
+    MatGridListModule,
+    MatFormFieldModule,
+    MatIconModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

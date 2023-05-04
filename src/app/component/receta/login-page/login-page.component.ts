@@ -17,7 +17,7 @@ export class LoginPageComponent implements OnInit{
   form: FormGroup = new FormGroup({});
   usuario:Usuario  = new Usuario();
   mensaje: string = '';
-
+  hide=true;
   user:string="";
   pass:string="";
 
