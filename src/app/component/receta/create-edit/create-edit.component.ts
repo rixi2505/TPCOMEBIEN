@@ -45,9 +45,9 @@ export class CreateEditComponent implements OnInit {
       this.recetaService.listId(this.id).subscribe((data) => {
         this.form = new FormGroup({
           id: new FormControl(data.id),
-          nameReceta: new FormControl(data.nombre),
-          ingredientesReceta: new FormControl(data.ingredientes),
-          preparacionReceta: new FormControl(data.preparacion),
+          nombre: new FormControl(data.nombre),
+          ingredientes: new FormControl(data.ingredientes),
+          preparacion: new FormControl(data.preparacion),
         });
       });
     }

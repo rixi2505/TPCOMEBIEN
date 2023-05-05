@@ -40,7 +40,7 @@ export class LoginPageComponent implements OnInit{
 
  login():void{
   console.log('a')
-  this.router.navigate(['prueba'])
+  this.router.navigate(['inicio'])
  }
 
 }

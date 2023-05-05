@@ -23,6 +23,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatGridListModule } from '@angular/material/grid-list';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
+import { InicioComponent } from './component/receta/inicio/inicio.component';
 
 
 
@@ -34,7 +35,8 @@ import { MatIconModule } from '@angular/material/icon';
     RecetaListarComponent,
     CreateEditComponent,
     MainPageComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    InicioComponent
 
   ],
   imports: [
