@@ -4,8 +4,20 @@ module.exports = function () {
       {
         id: 1,
         nombre: "Pollo al Horno",
-        ingredientes: " 4 muslos de pollo,",
-        preparacion: "1) Ponemos en la bas",
+        ingredientes: " pollo,",
+        preparacion: "cocinar",
+      },
+      {
+        id: 2,
+        nombre: "arroz",
+        ingredientes: " arroz,",
+        preparacion: "cocinar",
+      },
+      {
+        id: 3,
+        nombre: "agua",
+        ingredientes: " agua,",
+        preparacion: "servir",
       },
     ],
     usuarios: [
