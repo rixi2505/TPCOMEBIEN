@@ -1,4 +1,4 @@
 export const environment={
-  production:true,
-  base:"https://soft-lamington-ed0dc8.netlify.app/"
+  production:false,
+  base:"http://localhost:5000"
 }
