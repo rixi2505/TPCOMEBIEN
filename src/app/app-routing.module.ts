@@ -4,7 +4,7 @@ import { RecetaComponent } from './component/receta/receta.component';
 import { CreateEditComponent } from './component/receta/create-edit/create-edit.component';
 import { LoginPageComponent } from './component/prelogin/login-page/login-page.component';
 import { MainPageComponent } from './component/receta/main-page/main-page.component';
-import { InicioComponent } from './component/receta/inicio/inicio.component';
+import { InicioComponent } from './component/inicio/inicio.component';
 import { PreloginComponent } from './component/prelogin/prelogin.component';
 
 const routes: Routes = [

@@ -11,5 +11,6 @@ import { Usuario } from 'src/app/model/usuarios';
   styleUrls: ['./inicio.component.css']
 })
 export class InicioComponent {
+  title = 'Inicio';
 
 }

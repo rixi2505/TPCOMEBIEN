@@ -1,0 +1,150 @@
+body{
+  font-family: Verdana, serif;
+  margin: 0;
+  padding: 0;
+  background-color: #CBFFA5;
+
+}
+a{
+  text-decoration: none;
+  color: white;
+}
+header{
+  display: flex;
+  height: 70px;
+  background-color: black;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+
+}
+
+.logo{
+  display: flex;
+  align-items: center;
+}
+.logo img{
+  height: 50px;
+  margin-right: 10px;
+}
+nav a{
+  font-weight: 600;
+  padding-right: 10px;
+}
+nav a:hover{
+  color: #00B050;
+}
+.contenedor{
+  display:flex;
+  max-width: 100%;
+  height: 40vh;
+  background-image: url("src\assets\images\banner.jpg") ;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: left;
+}
+
+.contenedor .contenido{
+  max-width: 800px;
+  margin-left:100px ;
+  margin-top: 60px;
+  height: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: left;
+}
+.contenedor .contenido .caja{
+  flex-basis: 90%;
+  color: white;
+  text-align: left;
+}
+
+.contenedor .contenido .caja span{
+  font-size: 18px;
+  letter-spacing: 2px;
+  font-weight: 300;
+}
+.contenedor .contenido .caja h1{
+  font-size: 50px;
+  font-weight: bolder;
+  line-height: 0.9;
+  padding-bottom: 10px;
+}
+.contenedor .contenido .caja p{
+  font-size: 15px;
+  line-height: 1.2;
+  padding-bottom: 10px;
+}
+.contenedor .contenido .caja .botones{
+  display: flex;
+  margin-top: 30px;
+  flex-flow: row wrap;
+}
+.contenedor .contenido .caja .botones .btn1{
+  flex-basis: 30%;
+  border: solid 2px;
+  border-radius: 20px;
+  padding: 10px 30px 10px 30px;
+  margin-right: 20px;
+  text-align: center;
+}
+.contenedor .contenido .caja .botones .btn2{
+  flex-basis: 30%;
+  border: solid 2px;
+  border-radius: 20px;
+  padding: 10px 30px 10px 30px;
+  margin-right: 20px;
+  text-align: center;
+}
+.contenedor .contenido .caja .botones .btn1:hover{
+  background-color: white;
+  color: green;
+}
+.contenedor .contenido .caja .botones .btn2:hover{
+  background-color: white;
+  color: green;
+}
+.cards{
+  display: flex;
+  background-color: #CBFFA5;
+  justify-content: center;
+
+}
+.tajeta{
+
+  margin: 20px;
+  border-radius: 6px;
+  overflow: hidden;
+  background: black;
+  box-shadow: 0 1px 10px rgba(0,0,0,0.2);
+  cursor: default;
+  transition: all 400ms ease;
+  justify-content: center;
+
+}
+.tajeta:hover{
+  box-shadow: 5px 5px 20px lawngreen;
+  transform: translateY(-3%);
+  justify-content: center;
+}
+.tajeta img{
+  height: 180px;
+  width: 100%;
+  image-resolution: normal;
+  text-align: right;
+
+}
+.cards .tajeta .contenido{
+  padding: 15px;
+  text-align: center;
+  color: white;
+}
+.cards .tajeta .contenido a{
+  display: inline-block;
+  padding: 10px;
+  margin-top: 10px;
+  color: black;
+  background-color: lawngreen;
+  border: 1px solid yellow;
+  border-radius: 20px;
+}

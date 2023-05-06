@@ -23,8 +23,12 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatGridListModule } from '@angular/material/grid-list';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
-import { InicioComponent } from './component/receta/inicio/inicio.component';
+import { InicioComponent } from './component/inicio/inicio.component';
 import { PreloginComponent } from './component/prelogin/prelogin.component';
+import { Card1Component } from './component/inicio/card1/card1.component';
+import { Card2Component } from './component/inicio/card2/card2.component';
+import { Card3Component } from './component/inicio/card3/card3.component';
+
 
 
 
@@ -38,7 +42,10 @@ import { PreloginComponent } from './component/prelogin/prelogin.component';
     MainPageComponent,
     LoginPageComponent,
     InicioComponent,
-    PreloginComponent
+    PreloginComponent,
+    Card1Component,
+    Card2Component,
+    Card3Component
 
   ],
   imports: [
