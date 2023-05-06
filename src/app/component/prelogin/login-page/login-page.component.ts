@@ -39,7 +39,6 @@ export class LoginPageComponent implements OnInit{
   }
 
  login():void{
-  console.log('a')
   this.router.navigate(['inicio'])
  }
 

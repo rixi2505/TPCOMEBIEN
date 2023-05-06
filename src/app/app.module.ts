@@ -6,7 +6,7 @@ import { RecetaComponent } from './component/receta/receta.component';
 import { RecetaListarComponent } from './component/receta/receta-listar/receta-listar.component';
 import { CreateEditComponent } from './component/receta/create-edit/create-edit.component';
 import { MainPageComponent } from './component/receta/main-page/main-page.component';
-import { LoginPageComponent } from './component/receta/login-page/login-page.component';
+import { LoginPageComponent } from './component/prelogin/login-page/login-page.component';
 import { HttpClientModule} from '@angular/common/http';//add mano
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule } from '@angular/material/table';
@@ -24,6 +24,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { InicioComponent } from './component/receta/inicio/inicio.component';
+import { PreloginComponent } from './component/prelogin/prelogin.component';
 
 
 
@@ -36,7 +37,8 @@ import { InicioComponent } from './component/receta/inicio/inicio.component';
     CreateEditComponent,
     MainPageComponent,
     LoginPageComponent,
-    InicioComponent
+    InicioComponent,
+    PreloginComponent
 
   ],
   imports: [
