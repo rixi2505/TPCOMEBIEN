@@ -28,7 +28,8 @@ import { PreloginComponent } from './component/prelogin/prelogin.component';
 import { Card1Component } from './component/inicio/card1/card1.component';
 import { Card2Component } from './component/inicio/card2/card2.component';
 import { Card3Component } from './component/inicio/card3/card3.component';
-
+import { DialogoComponent } from './component/receta/receta-listar/dialogo/dialogo.component';
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 
@@ -45,7 +46,8 @@ import { Card3Component } from './component/inicio/card3/card3.component';
     PreloginComponent,
     Card1Component,
     Card2Component,
-    Card3Component
+    Card3Component,
+    DialogoComponent
 
   ],
   imports: [
@@ -65,6 +67,7 @@ import { Card3Component } from './component/inicio/card3/card3.component';
     MatMenuModule,
     MatGridListModule,
     MatFormFieldModule,
+    MatDialogModule,
     MatIconModule
 
   ],

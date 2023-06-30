@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Receta } from 'src/app/model/recetas';
-//import * as moment from 'moment'; // add a mano
+
 import { RecetaService } from 'src/app/service/receta.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 
@@ -14,7 +14,6 @@ export class CreateEditComponent implements OnInit {
   form: FormGroup = new FormGroup({});
   receta: Receta = new Receta();
   mensaje: string = '';
-
   id: number = 0;
   edicion: boolean = false; //no es edicion
 
@@ -36,8 +35,11 @@ export class CreateEditComponent implements OnInit {
     this.form = new FormGroup({
       id: new FormControl(),
       nombre: new FormControl('', [Validators.required]),
-      ingredientes: new FormControl('', [Validators.required]),
-      preparacion: new FormControl('', [Validators.required]),
+      descripcion: new FormControl(),
+      valoracion: new FormControl(),
+      calorias: new FormControl(),
+      link: new FormControl(),
+
     });
   }
   init() {
@@ -46,8 +48,10 @@ export class CreateEditComponent implements OnInit {
         this.form = new FormGroup({
           id: new FormControl(data.id),
           nombre: new FormControl(data.nombre),
-          ingredientes: new FormControl(data.ingredientes),
-          preparacion: new FormControl(data.preparacion),
+          descripcion: new FormControl(data.descripcion),
+          valoracion: new FormControl(data.valoracion),
+          calorias: new FormControl(data.calorias),
+          link: new FormControl(data.link),
         });
       });
     }
@@ -56,26 +60,30 @@ export class CreateEditComponent implements OnInit {
   aceptar(): void {
     this.receta.id = this.form.value['id'];
     this.receta.nombre = this.form.value['nombre'];
-    this.receta.ingredientes = this.form.value['ingredientes'];
-    this.receta.preparacion = this.form.value['preparacion'];
+    this.receta.descripcion=this.form.value['descripcion'];
+    this.receta.valoracion=this.form.value['valoracion'];
+    this.receta.calorias=this.form.value['calorias'];
+    this.receta.link=this.form.value['link'];
     if (this.form.valid) {
         if (this.edicion) {
           //registrarlo en la base de  datos
-          this.recetaService.update(this.receta).subscribe((data) =>
-            this.router.navigate(['receta']).then(() => {
-              window.location.reload();
+          this.recetaService.update(this.receta).subscribe((data) =>{
+            this.recetaService.list().subscribe(data=>{
+              this.recetaService.setList(data);
             })
-          );
-        } else {
+         });
+
+       } else {
           //registrarlo en la base de  datos
-          this.recetaService.insert(this.receta).subscribe((data) =>
-            this.router.navigate(['receta']).then(() => {
-              window.location.reload();
+          this.recetaService.insert(this.receta).subscribe(() =>{
+            this.recetaService.list().subscribe(data=>{
+              this.recetaService.setList(data);
             })
-          );
+          });
         }
-      } else{
+        this.router.navigate(['receta']);
+      }else{
         this.mensaje = "Agrege campos omitidos";
-      }
+    }
   }
 }

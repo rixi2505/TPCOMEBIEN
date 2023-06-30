@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
+<div class="contenedor">
   <form [formGroup]="form" (submit)="aceptar()">
     <mat-form-field class="example-full-width">
       <mat-label>Código</mat-label>
@@ -19,13 +11,23 @@
     </mat-form-field>
     <br>
     <mat-form-field class="example-full-width">
-      <mat-label>Ingredientes</mat-label>
-      <input matInput required placeholder="Ingredientes" formControlName="ingredientes">
+      <mat-label>Descripcion</mat-label>
+      <input matInput required placeholder="Descripcion" formControlName="descripcion">
     </mat-form-field>
     <br>
     <mat-form-field class="example-full-width">
-      <mat-label>Preparacion</mat-label>
-      <input matInput required placeholder="Preparacion" formControlName="preparacion">
+      <mat-label>Valoracion</mat-label>
+      <input matInput required placeholder="Valoracion" formControlName="valoracion">
+    </mat-form-field>
+    <br>
+    <mat-form-field class="example-full-width">
+      <mat-label>Calorias</mat-label>
+      <input matInput required placeholder="Calorias" formControlName="calorias">
+    </mat-form-field>
+    <br>
+    <mat-form-field class="example-full-width">
+      <mat-label>Link</mat-label>
+      <input matInput required placeholder="Link" formControlName="link">
     </mat-form-field>
 
     <br>
@@ -34,5 +36,4 @@
     <p>{{mensaje}}</p>
 
   </form>
-</body>
-</html>
+</div>

@@ -4,7 +4,10 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { Receta } from 'src/app/model/recetas';
+import { MatDialog } from '@angular/material/dialog';
 import { RecetaService } from 'src/app/service/receta.service';
+import { DialogoComponent } from './dialogo/dialogo.component';
+
 
 @Component({
   selector: 'app-receta-listar',
@@ -13,22 +16,25 @@ import { RecetaService } from 'src/app/service/receta.service';
 })
 export class RecetaListarComponent implements OnInit{
   lista: Receta[] = [];
-  displayedColumns = ['id','nombre','ingredientes','preparacion', 'accion01', 'accion02'];
+  displayedColumns = ['id','nombre','descripcion','valoracion','calorias','link', 'accion01', 'accion02'];
   dataSource = new MatTableDataSource<Receta>();
   @ViewChild(MatPaginator) paginator : MatPaginator;
   @ViewChild(MatSort) sort : MatSort;
 
   constructor(private recetaService: RecetaService,
-     private router: Router){
+     private router: Router, private dialog:MatDialog){
   }
   ngOnInit(): void {
     this.recetaService.list().subscribe(data => {
+      this.dataSource.data = data;
+   });
 
-      this.dataSource.data = data; // asíncrona
+    this.recetaService.getLista().subscribe(data => {
 
-      });
+       this.dataSource.data = data;
+
+    });
   }
-
 
   ngAfterViewInit(){
     this.dataSource.sort = this.sort;
@@ -38,13 +44,32 @@ export class RecetaListarComponent implements OnInit{
   filtrar(e: any) {
     this.dataSource.filter = e.target.value.trim();
   }
+  openDialog(id: string){
+    const dialogRef = this.dialog.open(DialogoComponent);
+    dialogRef.afterClosed().subscribe(result => {
+       if(result){
+          this.delete(id);
+       }else{
+         console.log("FALSE");
+       }
+    });
+ }
 
   delete(id:string){
-    this.recetaService.delete(id).subscribe(() =>
-        this.router.navigate(['receta']).then(() => {
-          window.location.reload();
-        }))
+    this.recetaService.delete(id).subscribe(() =>{
+    this.recetaService.list().subscribe(data => {
+      this.recetaService.setList(data);
+    })
+  });
   }
-
-
+  buscar(name: string){
+    this.recetaService.listName(name).subscribe(data => {
+         this.recetaService.setList(data);
+     });
+   }
+   listar(){
+    this.recetaService.list().subscribe(data => {
+        this.recetaService.setList(data);
+    });
+  }
 }

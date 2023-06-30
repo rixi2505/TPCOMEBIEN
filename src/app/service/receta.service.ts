@@ -1,6 +1,6 @@
-import {HttpClient} from '@angular/common/http'
+import {HttpClient, HttpHeaders} from '@angular/common/http'
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { environment } from 'src/enviroments/enviroment';
 import { Receta } from '../model/recetas';
 import { Usuario } from '../model/usuarios';
@@ -12,26 +12,37 @@ const baseUrl = environment.base;
   providedIn: 'root'
 })
 export class RecetaService {
-  private url = `${baseUrl}/recetas`;
-  constructor(private http:HttpClient) { }
+  private url = `${baseUrl}`;
+  private httpHeaders = new HttpHeaders({'Access-Control-Allow-Origin': 'http://localhost:8080/api'});
+  constructor(private http:HttpClient) { } //inyectar httpClient
+  private listaCambio = new Subject<Receta[]>();
+
 
   list():Observable<any>{
-    return this.http.get<Receta[]>(this.url); //http://localhost:5000/authors
+    return this.http.get<Receta[]>(this.url+"/recetas"); //http://localhost:5000/authors
   }
 
-  insert(author : Receta){
-     return this.http.post(this.url, author);
+  insert(receta : Receta){
+     return this.http.post(this.url+"/receta", receta);
   }
   delete(id:string){
-    return this.http.delete(this.url + "/" + id);
+    return this.http.delete(this.url + "/receta/" + id);
   }
   listId(id:number){
-    return this.http.get<Receta>(`${this.url}/${id}`);
+    return this.http.get<Receta>(`${this.url+ "/receta"}/${id}`);
   }
-  update(aut: Receta){
-    return this.http.put(this.url+"/"+aut.id, aut);
+  listName(name:string){
+    return this.http.get<Receta[]>(`${this.url+"/recetas"}/${name}`);
   }
-
+  update(rec: Receta){
+    return this.http.put(this.url+"/receta", rec);
+  }
+  setList(listaNueva: Receta[]) {
+    this.listaCambio.next(listaNueva);
+  }
+  getLista() {
+    return this.listaCambio.asObservable();
+  }
 
 
 

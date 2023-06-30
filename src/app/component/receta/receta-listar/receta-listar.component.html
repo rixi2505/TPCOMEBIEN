@@ -1,7 +1,7 @@
 <div class="container">
   <h1 style="text-align: center;">Listado de Recetas</h1>
 
-  <mat-grid-list cols="2" rowHeight="4em">
+  <mat-grid-list cols="6" rowHeight="4em">
     <mat-grid-tile>
       <div style="text-align: right;">
         <button mat-raised-button color="primary"
@@ -40,22 +40,40 @@
       </ng-container>
 
       <!-- Weight Column -->
-      <ng-container matColumnDef="ingredientes">
+      <ng-container matColumnDef="descripcion">
         <mat-header-cell *matHeaderCellDef mat-sort-header>
-          Ingredientes
+          Descripcion
         </mat-header-cell>
         <mat-cell *matCellDef="let element">
-          {{ element.ingredientes }}
+          {{ element.descripcion }}
+        </mat-cell>
+      </ng-container>
+      <!-- Weight Column -->
+      <ng-container matColumnDef="valoracion">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>
+          Valoracion
+        </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          {{ element.valoracion }}
+        </mat-cell>
+      </ng-container>
+      <!-- Weight Column -->
+      <ng-container matColumnDef="calorias">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>
+          Calorias
+        </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          {{ element.calorias }}
         </mat-cell>
       </ng-container>
 
       <!-- Weight Column -->
-      <ng-container matColumnDef="preparacion">
+      <ng-container matColumnDef="link">
         <mat-header-cell *matHeaderCellDef mat-sort-header>
-          Preparacion
+          Link
         </mat-header-cell>
         <mat-cell *matCellDef="let element">
-          {{ element.preparacion }}
+          {{ element.link }}
         </mat-cell>
       </ng-container>
 
